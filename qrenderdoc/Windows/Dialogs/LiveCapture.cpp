@@ -1040,6 +1040,10 @@ void LiveCapture::captureAdded(const NewCaptureData &newCapture)
 {
   Capture *cap = new Capture();
 
+  if (!m_Connection) {
+    return;
+  }
+
   cap->name = QString::fromUtf8(m_Connection->GetTarget());
 
   cap->api = newCapture.api;
